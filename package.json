@@ -9,7 +9,8 @@
   "license": "MIT",
   "scripts": {
     "ganache": "ganache-cli --mnemonic 'candy maple cake sugar pudding cream honey rich smooth crumble sweet treat'",
-    "test": "truffle test test/ExerciseC6A.js"
+    "test_1": "truffle test test/MultipartAndPause.js",
+    "test_2": "truffle test test/CheckEffectInteraction.js"
   },
   "author": "Nik Kalyani <nik@kalyani.com> https://www.kalyani.com",
   "devDependencies": {
