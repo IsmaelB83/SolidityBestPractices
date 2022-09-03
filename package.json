@@ -17,6 +17,7 @@
     "truffle-hdwallet-provider": "^0.0.5"
   },
   "dependencies": {
+    "@openzeppelin/contracts": "^4.7.3",
     "@truffle/hdwallet-provider": "^2.0.14"
   }
 }
