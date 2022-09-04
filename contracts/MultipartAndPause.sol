@@ -68,16 +68,16 @@ contract MultipartAndPause {
     * @dev Check if a user is registered
     * @return A bool that indicates if the user is registered
     */   
-    function isUserRegistered (address account) external view returns(bool) {
+    function isUserRegistered (address account) external view returns(UserProfile memory) {
         require(account != address(0), "'account' must be a valid address.");
-        return userProfiles[account].isRegistered;
+        return (userProfiles[account]);
     }
 
     /********************************************************************************************/
     /*                                     SMART CONTRACT FUNCTIONS                             */
     /********************************************************************************************/
     function registerUser (address account, bool isAdmin) external requireContractOwner isOperational {
-        require(!userProfiles[account].isRegistered, "User is already registered.");
+        //require(!userProfiles[account].isRegistered, "User is already registered.");
         userProfiles[account] = UserProfile({ isRegistered: true, isAdmin: isAdmin });
     }
 
