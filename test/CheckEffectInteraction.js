@@ -6,20 +6,13 @@ contract('CheckEffectInteraction', accounts => {
     it('user can withdraw ether', async () => {
         const checkEffectInteration = await CheckEffectInteraction.deployed()
         // Deposit money in the contract
-        const deposit = toBN(1000000);
-        await checkEffectInteration.deposit({from: accounts[0], value: deposit});
-        // Check balance before withdraw, then withdraw 500000wei and check new balance
-        const withdraw = toBN(500000);
-        const oldBalance = toBN(await web3.eth.getBalance(accounts[0]))
-        const tx = await checkEffectInteration.safeWithdraw(withdraw);
-        const newBalance = toBN(await web3.eth.getBalance(accounts[0]));
-        // New balance should be old balance + withdraw wei - fee costs of withdraw transaction
-        const txFee = toBN(tx.receipt.gasUsed).mul(toBN(tx.receipt.effectiveGasPrice))
-        console.log(`Old balance: ${oldBalance}`);
-        console.log(`New balance: ${newBalance}`);
-        console.log(`Gas used: ${toBN(tx.receipt.gasUsed)}`)
-        console.log(`Gas price: ${toBN(tx.receipt.effectiveGasPrice)}`)
-        console.log(`Transaction costs: ${txFee}`);        
-        assert.equal(oldBalance + withdraw - txFee, newBalance, "SafeWithdraw returns all the money deposit");
+        //console.log(`My Balance now (BEFORE DEPOSIT) = ${await web3.eth.getBalance(accounts[4])}`);
+        checkEffectInteration.deposit({from: accounts[4], value: 5000000000000000});
+        //console.log(`My Balance now (AFTER DEPOSIT) = ${await web3.eth.getBalance(accounts[4])}`);
+        //console.log(`My Balance now (IN CONTRACT)= ${await checkEffectInteration.getBalance.call({from: accounts[4]})}`);
+        // Check balance after withdraw, then withdraw and check new balance
+        checkEffectInteration.safeWithdraw(5000000000000000, {from: accounts[4]});
+        //console.log(`My Balance now (AFTER WITHDRAW) = ${await web3.eth.getBalance(accounts[4])}`);
+        //console.log(`My Balance now (IN CONTRACT) = ${await checkEffectInteration.getBalance.call({from: accounts[4]})}`);
     });
 });

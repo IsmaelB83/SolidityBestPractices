@@ -22,4 +22,8 @@ contract CheckEffectInteraction {
         // Interaction
         payable((msg.sender)).transfer(amount);
     }
+
+    function getBalance() public view returns (uint256) {
+        return shares[msg.sender];
+    }
 }
