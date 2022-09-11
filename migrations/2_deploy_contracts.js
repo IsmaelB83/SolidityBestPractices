@@ -3,6 +3,7 @@ const MultipartAndPause = artifacts.require("MultipartAndPause");
 const RateLimit = artifacts.require("RateLimit");
 const Employees = artifacts.require("SplitAppData/Employees");
 const EmployeesApp = artifacts.require("SplitAppData/EmployeesApp");
+const Oracles = artifacts.require("Oracles/Oracles");
 
 module.exports = function(deployer) {
     deployer.deploy(CheckEffectInteraction);
@@ -10,4 +11,5 @@ module.exports = function(deployer) {
     deployer.deploy(RateLimit);
     deployer.deploy(Employees)
     .then(result => deployer.deploy(EmployeesApp, result.address));
+    deployer.deploy(Oracles)
 }

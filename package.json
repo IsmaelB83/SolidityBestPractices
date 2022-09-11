@@ -8,9 +8,8 @@
   "repository": "https://github.com/techbubble/blockchain-day1",
   "license": "MIT",
   "scripts": {
-    "ganache": "ganache-cli --mnemonic 'candy maple cake sugar pudding cream honey rich smooth crumble sweet treat'",
-    "test_1": "truffle test test/MultipartAndPause.js",
-    "test_2": "truffle test test/CheckEffectInteraction.js"
+    "ganache": "ganache-cli --accounts=50 --mnemonic 'giggle online praise response trigger gloom coral million sail iron alpha purity' ",
+    "test": "truffle test test/Oracles.js"
   },
   "author": "Nik Kalyani <nik@kalyani.com> https://www.kalyani.com",
   "devDependencies": {
@@ -19,6 +18,7 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.7.3",
-    "@truffle/hdwallet-provider": "^2.0.14"
+    "@truffle/hdwallet-provider": "^2.0.14",
+    "truffle-assertions": "^0.9.2"
   }
 }
